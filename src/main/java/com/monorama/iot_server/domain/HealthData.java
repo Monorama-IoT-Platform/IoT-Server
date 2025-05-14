@@ -2,12 +2,15 @@ package com.monorama.iot_server.domain;
 
 import com.monorama.iot_server.domain.embedded.HealthDataItem;
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "health_data_tb")
+@NoArgsConstructor
 public class HealthData {
 
     @Id
@@ -17,7 +20,7 @@ public class HealthData {
 
     /*** basic information ***/
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition = "DATETIME(0)")
     private Date createdAt;
 
     @Embedded
@@ -29,8 +32,11 @@ public class HealthData {
     private User user;
 
     /*** business logic ***/
-    private void setUser(User user) {
+    @Builder
+    public HealthData(Long id, Date createdAt, HealthDataItem healthDataItem, User user) {
+        this.id = id;
+        this.createdAt = createdAt;
+        this.healthDataItem = healthDataItem;
         this.user = user;
-        user.getHealthDataList().add(this);
     }
 }

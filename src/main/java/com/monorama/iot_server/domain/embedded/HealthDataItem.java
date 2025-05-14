@@ -3,6 +3,7 @@ package com.monorama.iot_server.domain.embedded;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -52,5 +53,28 @@ public class HealthDataItem {
 
     @Column(name = "watch_device_longitude")
     private Double watchDeviceLongitude;
+
+    @Builder
+    public HealthDataItem(Double stepCount, Double runningSpeed, Double basalEnergyBurned,
+                          Double activeEnergyBurned, String sleepAnalysis, Double heartRate,
+                          Double oxygenSaturation, Double bloodPressureSystolic,
+                          Double bloodPressureDiastolic, Double respiratoryRate,
+                          Double bodyTemperature, String ecgData, Double watchDeviceLatitude,
+                          Double watchDeviceLongitude) {
+        this.stepCount = stepCount;
+        this.runningSpeed = runningSpeed;
+        this.basalEnergyBurned = basalEnergyBurned;
+        this.activeEnergyBurned = activeEnergyBurned;
+        this.sleepAnalysis = sleepAnalysis;
+        this.heartRate = heartRate;
+        this.oxygenSaturation = oxygenSaturation;
+        this.bloodPressureSystolic = bloodPressureSystolic;
+        this.bloodPressureDiastolic = bloodPressureDiastolic;
+        this.respiratoryRate = respiratoryRate;
+        this.bodyTemperature = bodyTemperature;
+        this.ecgData = ecgData;
+        this.watchDeviceLatitude = watchDeviceLatitude;
+        this.watchDeviceLongitude = watchDeviceLongitude;
+    }
 }
 
