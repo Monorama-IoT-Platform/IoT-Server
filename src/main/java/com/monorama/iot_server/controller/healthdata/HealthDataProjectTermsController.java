@@ -1,9 +1,9 @@
-package com.monorama.iot_server.controller.HealthData;
+package com.monorama.iot_server.controller.healthdata;
 
 import com.monorama.iot_server.domain.type.TermsType;
 import com.monorama.iot_server.dto.ResponseDto;
 import com.monorama.iot_server.dto.response.terms.TermsContentResponseDto;
-import com.monorama.iot_server.service.HealthData.HealthDataProjectService;
+import com.monorama.iot_server.service.healthdata.HealthDataProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

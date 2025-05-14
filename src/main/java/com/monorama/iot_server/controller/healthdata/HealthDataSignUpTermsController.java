@@ -1,4 +1,4 @@
-package com.monorama.iot_server.controller.HealthData;
+package com.monorama.iot_server.controller.healthdata;
 
 import com.monorama.iot_server.domain.type.ServiceType;
 import com.monorama.iot_server.dto.ResponseDto;

@@ -1,4 +1,4 @@
-package com.monorama.iot_server.service.HealthData;
+package com.monorama.iot_server.service.healthdata;
 
 import com.monorama.iot_server.domain.Project;
 import com.monorama.iot_server.domain.User;

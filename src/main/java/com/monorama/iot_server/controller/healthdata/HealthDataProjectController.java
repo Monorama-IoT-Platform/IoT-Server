@@ -1,10 +1,10 @@
-package com.monorama.iot_server.controller.HealthData;
+package com.monorama.iot_server.controller.healthdata;
 
 import com.monorama.iot_server.annotation.UserId;
 import com.monorama.iot_server.dto.ResponseDto;
 import com.monorama.iot_server.dto.response.project.ProjectDetailResponseDto;
 import com.monorama.iot_server.dto.response.project.ProjectListResponseDto;
-import com.monorama.iot_server.service.HealthData.HealthDataProjectService;
+import com.monorama.iot_server.service.healthdata.HealthDataProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
