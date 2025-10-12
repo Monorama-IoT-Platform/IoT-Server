@@ -2,10 +2,12 @@ package com.monorama.iot_server.domain;
 
 import com.monorama.iot_server.domain.embedded.AirQualityDataItem;
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
 @Table(name = "air_quality_data_tb")
 public class AirQualityData {
 
