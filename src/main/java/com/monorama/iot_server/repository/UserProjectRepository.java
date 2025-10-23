@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface UserProjectRepository extends JpaRepository<UserProject, Long> {
@@ -17,7 +17,7 @@ public interface UserProjectRepository extends JpaRepository<UserProject, Long> 
             "WHERE up.user.id = :userId " +
             "AND up.project.startDate <= :today " +
             "AND up.project.endDate >= :today")
-    List<Project> findProgressProjectsByUserId(@Param("userId") Long userId, @Param("today") Date today);
+    List<Project> findProgressProjectsByUserId(@Param("userId") Long userId, @Param("today") LocalDate today);
 
 }
 

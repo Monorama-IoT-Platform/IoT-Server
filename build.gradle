@@ -64,6 +64,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    /** Google ID Token 검증용 (공식 Google API Client) **/
+    implementation 'com.google.api-client:google-api-client:2.8.1'
 }
 
 tasks.named('test') {

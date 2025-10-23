@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
@@ -20,7 +20,7 @@ public class UserProject {
     /*** basic information ***/
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "DATETIME(0)")
-    private Date createdAt;
+    private LocalDate createdAt;
 
     /*** mapping information ***/
     @ManyToOne(fetch = FetchType.LAZY)

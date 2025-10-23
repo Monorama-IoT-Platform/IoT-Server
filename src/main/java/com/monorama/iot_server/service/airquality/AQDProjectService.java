@@ -34,7 +34,7 @@ public class AQDProjectService {
     private final UserProjectRepository userProjectRepo;
     private final AirMetaDataItemRepository airMetaDataItemRepository;
 
-    public ProjectListResponseDto getAvailableAirQualityProjectList(Long userId) {
+    public ProjectListResponseDto getAvailableAQDList(Long userId) {
 
         User user = userRepo.findById(userId)
                 .orElseThrow(() -> new CommonException(ErrorCode.NOT_FOUND_USER));
@@ -76,6 +76,8 @@ public class AQDProjectService {
         if (userProjectRepo.existsByUserAndProject(user, project)) {
             throw new CommonException(ErrorCode.ALREADY_JOINED_PROJECT);
         }
+
+        project.increaseParticipant();
 
         userProjectRepo.save(
                 UserProject.builder()

@@ -7,7 +7,7 @@ import com.monorama.iot_server.domain.type.Gender;
 import com.monorama.iot_server.domain.type.NationalCode;
 import jakarta.validation.constraints.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public record UserRegisterDto(
         @NotBlank()
@@ -27,7 +27,7 @@ public record UserRegisterDto(
         String phoneNumber,
 
         @NotNull()
-        Date dateOfBirth,
+        LocalDate dateOfBirth,
 
         @NotNull()
         BloodType bloodType,

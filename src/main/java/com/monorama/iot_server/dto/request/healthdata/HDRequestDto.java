@@ -8,16 +8,15 @@ import com.monorama.iot_server.domain.embedded.HealthDataItem;
 import com.monorama.iot_server.exception.CommonException;
 import com.monorama.iot_server.exception.ErrorCode;
 import jakarta.validation.constraints.NotNull;
-import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public record HDRequestDto(
         @NotNull
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-        Date createdAt,
+        LocalDateTime createdAt,
 
         Double stepCount,
         Double runningSpeed,
@@ -53,7 +52,7 @@ public record HDRequestDto(
                 .build();
 
         return HealthData.builder()
-                .createdAt(createdAt)
+                .createAt(createdAt)
                 .user(user)
                 .healthDataItem(item)
                 .build();

@@ -5,6 +5,7 @@ import com.monorama.iot_server.constant.Constant;
 import com.monorama.iot_server.dto.JwtTokenDto;
 import com.monorama.iot_server.dto.ResponseDto;
 import com.monorama.iot_server.dto.request.auth.AppleLoginRequestDto;
+import com.monorama.iot_server.dto.request.auth.GoogleLoginRequestDto;
 import com.monorama.iot_server.dto.request.register.UserRegisterDto;
 import com.monorama.iot_server.dto.request.register.PMRegisterDto;
 import com.monorama.iot_server.exception.CommonException;
@@ -33,6 +34,11 @@ public class AuthController {
     @PostMapping("/login/apple")
     public ResponseDto<JwtTokenDto> loginWithAppleForApp(@Valid @RequestBody AppleLoginRequestDto appleLoginRequestDto) {
         return ResponseDto.ok(authService.loginWithAppleForApp(appleLoginRequestDto));
+    }
+
+    @PostMapping("/login/google")
+    public ResponseDto<JwtTokenDto> loginWithGoogleForApp(@Valid @RequestBody GoogleLoginRequestDto googleLoginRequestDto) {
+        return ResponseDto.ok(authService.loginWithGoogleForApp(googleLoginRequestDto));
     }
 
     @PatchMapping("/register/pm")

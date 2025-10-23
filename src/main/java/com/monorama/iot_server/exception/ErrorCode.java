@@ -39,6 +39,7 @@ public enum ErrorCode {
     INVALID_APPLE_ISSUER_ERROR(40111, HttpStatus.UNAUTHORIZED, "Invalid apple issuer"),
     APPLE_IDENTITY_TOKEN_EXPIRED_ERROR(40112, HttpStatus.UNAUTHORIZED, "Invalid identity token signature"),
     APPLE_IDENTITY_TOKEN_VERIFICATION_ERROR(40113, HttpStatus.UNAUTHORIZED, "identity token verification failed"),
+    INVALID_GOOGLE_TOKEN(40114, HttpStatus.UNAUTHORIZED, "유효하지 않은 Google ID 토큰입니다."),
 
     FILE_UPLOAD_ERROR(42201, HttpStatus.UNPROCESSABLE_ENTITY, "파일 업로드에 실패하였습니다."),
 

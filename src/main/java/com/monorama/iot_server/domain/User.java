@@ -11,7 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -50,7 +50,7 @@ public class User {
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "DATETIME(0)")
-    private Date createdAt;
+    private LocalDate createdAt;
 
     /*** mapping information ***/
     @OneToMany(mappedBy = "user")

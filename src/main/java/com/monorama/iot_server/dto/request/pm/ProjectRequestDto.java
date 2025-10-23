@@ -8,7 +8,7 @@ import com.monorama.iot_server.domain.embedded.*;
 import com.monorama.iot_server.domain.type.ProjectType;
 import jakarta.validation.constraints.NotNull;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,14 +26,11 @@ public record ProjectRequestDto(
 
         @NotNull
         @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul")
-        Date startDate,
+        LocalDate startDate,
 
         @NotNull
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
-        Date endDate,
-        @NotNull
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-        Date createdAt,
+        LocalDate endDate,
 
         @NotNull Boolean email,
         @NotNull Boolean gender,

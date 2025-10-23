@@ -3,7 +3,7 @@ package com.monorama.iot_server.domain;
 import com.monorama.iot_server.domain.embedded.AirQualityDataItem;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "air_quality_data_tb")
@@ -16,7 +16,7 @@ public class AirQualityData {
 
     /*** basic information ***/
     @Column(name = "created_at", columnDefinition = "DATETIME(0)", nullable = false)
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @Embedded
     private AirQualityDataItem airQualityDataItem;
@@ -36,7 +36,7 @@ public class AirQualityData {
         this.airQualityDataItem = item;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }

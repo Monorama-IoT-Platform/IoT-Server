@@ -19,6 +19,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
          :includeBoth = false AND p.projectType = com.monorama.iot_server.domain.type.ProjectType.HEALTH_DATA)
       AND p.startDate <= CURRENT_DATE
       AND p.endDate >= CURRENT_DATE
+      AND p.maxParticipant > p.curParticipant
     """)
     List<Project> findActiveHealthProjects(@Param("includeBoth") boolean includeBoth);
 
@@ -48,6 +49,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
          :includeBoth = false AND p.projectType = com.monorama.iot_server.domain.type.ProjectType.AIR_QUALITY)
       AND p.startDate <= CURRENT_DATE
       AND p.endDate >= CURRENT_DATE
+      AND p.maxParticipant > p.curParticipant
     """)
     List<Project> findActiveAirQualityProjects(@Param("includeBoth") boolean includeBoth);
 

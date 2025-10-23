@@ -4,9 +4,8 @@ import com.monorama.iot_server.domain.embedded.HealthDataItem;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "health_data_tb")
@@ -18,10 +17,9 @@ public class HealthData {
     @Column(name = "health_data_id")
     private Long id;
 
-    /*** basic information ***/
-    @CreationTimestamp
+    /*** basic information ***/ // TODO: 수정 요함 만들어진 날짜 받아야될듯
     @Column(name = "created_at", columnDefinition = "DATETIME(0)")
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @Embedded
     private HealthDataItem healthDataItem;
@@ -33,8 +31,9 @@ public class HealthData {
 
     /*** business logic ***/
     @Builder
-    public HealthData(Long id, Date createdAt, HealthDataItem healthDataItem, User user) {
+    public HealthData(Long id, LocalDateTime createAt, HealthDataItem healthDataItem, User user) {
         this.id = id;
+        this.createdAt = createAt;
         this.healthDataItem = healthDataItem;
         this.user = user;
     }

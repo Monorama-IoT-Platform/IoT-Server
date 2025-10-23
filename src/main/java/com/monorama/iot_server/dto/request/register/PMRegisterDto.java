@@ -40,7 +40,7 @@ public record PMRegisterDto(
                 gender,
                 nationalCode,
                 phoneNumber,
-                java.sql.Date.valueOf(dateOfBirth),
+                dateOfBirth,
                 null, // bloodType
                 null, // height
                 null  // weight

@@ -6,7 +6,8 @@ import com.monorama.iot_server.domain.embedded.AirQualityDataFlag;
 import com.monorama.iot_server.domain.embedded.HealthDataFlag;
 import com.monorama.iot_server.domain.embedded.PersonalInfoFlag;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public record ProjectDetailResponseDto(
@@ -17,13 +18,13 @@ public record ProjectDetailResponseDto(
         String projectType,
 
         @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul")
-        Date startDate,
+        LocalDate startDate,
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
-        Date endDate,
+        LocalDate endDate,
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-        Date createdAt,
+        LocalDateTime createdAt,
 
         String termsOfPolicy,
         String privacyPolicy,
@@ -83,7 +84,7 @@ public record ProjectDetailResponseDto(
         return new ProjectDetailResponseDto(
                 project.getUser().getEmail(),
                 project.getTitle(),
-                project.getParticipant(),
+                project.getMaxParticipant(),
                 project.getDescription(),
                 project.getProjectType().toString(),
                 project.getStartDate(),

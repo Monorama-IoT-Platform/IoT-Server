@@ -34,7 +34,7 @@ public class HDProjectService {
     private final UserProjectRepository userProjectRepository;
     private final AirMetaDataItemRepository airMetaDataItemRepository;
 
-    public ProjectListResponseDto getAvailableHealthProjectList(Long userId) {
+    public ProjectListResponseDto getAvailableHDProjectList(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new CommonException(ErrorCode.NOT_FOUND_USER));
 
@@ -76,6 +76,8 @@ public class HDProjectService {
         if (userProjectRepository.existsByUserAndProject(user, project)) {
             throw new CommonException(ErrorCode.ALREADY_JOINED_PROJECT);
         }
+
+        project.increaseParticipant();
 
         userProjectRepository.save(
                 UserProject.builder()

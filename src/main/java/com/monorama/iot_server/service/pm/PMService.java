@@ -45,11 +45,14 @@ public class PMService {
         return ProjectDetailResponseDto.fromEntity(project, airMetaDataItemDtoList);
     }
 
-    public void saveProject(Long pmId, ProjectRequestDto projectRequestDto) {
+    public String saveProject(Long pmId, ProjectRequestDto projectRequestDto) {
         User pm = userRepository.findById(pmId)
                 .orElseThrow(() -> new CommonException(ErrorCode.NOT_FOUND_USER));
 
-        projectRepository.save(projectRequestDto.toEntity(pm));
+        Project project = projectRequestDto.toEntity(pm);
+        projectRepository.save(project);
+
+        return "-" + pmId + "-" + project.getId() + "-" + project.getEndDate();
     }
 
 
