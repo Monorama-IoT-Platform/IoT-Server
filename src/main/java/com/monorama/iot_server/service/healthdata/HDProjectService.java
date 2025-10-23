@@ -38,7 +38,7 @@ public class HDProjectService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new CommonException(ErrorCode.NOT_FOUND_USER));
 
-        List<ProjectSimpleResponseDto> projects = projectRepository.findActiveHealthProjects((user.getRole() == ERole.BOTH_USER))
+        List<ProjectSimpleResponseDto> projects = projectRepository.findActiveHealthProjects((user.getRole() == ERole.BOTH_USER || user.getRole() == ERole.HD_USER))
                 .stream()
                 .map(ProjectSimpleResponseDto::fromEntity)
                 .toList();
