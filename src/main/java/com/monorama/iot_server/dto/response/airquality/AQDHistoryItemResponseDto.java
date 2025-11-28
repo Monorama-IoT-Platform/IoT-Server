@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.monorama.iot_server.domain.AirQualityData;
 import com.monorama.iot_server.domain.embedded.AirQualityDataItem;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public record AQDHistoryItemResponseDto(
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-        Date createdAt,
+        LocalDateTime createdAt,
 
         Double pm25Value,
         Double pm10Value,
