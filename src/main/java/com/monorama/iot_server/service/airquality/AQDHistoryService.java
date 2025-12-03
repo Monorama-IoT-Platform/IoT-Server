@@ -12,9 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -24,13 +22,9 @@ public class AQDHistoryService {
     private final AQDRepository airQualityDataRepository;
 
     public AQDHistoryListResponseDto getHistory(Long projectId, Long userId, LocalDate date, int page, int size) {
-        ZoneId zoneId = ZoneId.of("Asia/Seoul");
 
-        ZonedDateTime startZdt = date.atStartOfDay(zoneId);
-        ZonedDateTime endZdt = date.plusDays(1).atStartOfDay(zoneId);
-
-        Date start = Date.from(startZdt.toInstant());
-        Date end = Date.from(endZdt.toInstant());
+        LocalDateTime start = date.atStartOfDay();
+        LocalDateTime end = date.plusDays(1).atStartOfDay();
 
         Pageable pageable = PageRequest.of(
                 page,
