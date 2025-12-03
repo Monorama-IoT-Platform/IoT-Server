@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public interface AQDRepository extends JpaRepository<AirQualityData, Long> {
     @Query("""
@@ -24,8 +24,8 @@ public interface AQDRepository extends JpaRepository<AirQualityData, Long> {
     Slice<AirQualityData> findHistoryByProjectAndUserAndDate(
             @Param("projectId") Long projectId,
             @Param("userId") Long userId,
-            @Param("start") Date start,
-            @Param("end") Date end,
+            @Param("start") LocalDateTime start,
+            @Param("end") LocalDateTime end,
             Pageable pageable
     );
 }
