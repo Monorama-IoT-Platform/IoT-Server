@@ -2,6 +2,7 @@ package com.monorama.iot_server.controller.airquality;
 
 import com.monorama.iot_server.annotation.UserId;
 import com.monorama.iot_server.dto.ResponseDto;
+import com.monorama.iot_server.dto.response.airquality.AQDParticipatedProjectListResponseDto;
 import com.monorama.iot_server.dto.response.project.ProjectDetailResponseDto;
 import com.monorama.iot_server.dto.response.project.ProjectListResponseDto;
 import com.monorama.iot_server.service.airquality.AQDProjectService;
@@ -18,6 +19,15 @@ public class AQDProjectController {
     @GetMapping("/projects")
     public ResponseDto<ProjectListResponseDto> getAllProjects(@UserId Long userId) {
         return ResponseDto.ok(aqdProjectService.getAvailableAQDList(userId));
+    }
+
+    @GetMapping("/projects/participation")
+    public ResponseDto<AQDParticipatedProjectListResponseDto> getParticipatedProjects(
+            @UserId Long userId
+    ) {
+        AQDParticipatedProjectListResponseDto data =
+                aqdProjectService.getParticipatedProjects(userId);
+        return ResponseDto.ok(data);
     }
 
     @GetMapping("/projects/{projectId}")

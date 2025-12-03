@@ -19,5 +19,11 @@ public interface UserProjectRepository extends JpaRepository<UserProject, Long> 
             "AND up.project.endDate >= :today")
     List<Project> findProgressProjectsByUserId(@Param("userId") Long userId, @Param("today") LocalDate today);
 
+    @Query("""
+        SELECT up.project
+        FROM UserProject up
+        WHERE up.user.id = :userId
+        """)
+    List<Project> findProjectsByUserId(@Param("userId") Long userId);
 }
 
