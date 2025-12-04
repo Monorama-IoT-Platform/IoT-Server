@@ -70,7 +70,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         log.info(request.getRequestURI());
         log.info(String.valueOf(Constant.NO_NEED_AUTH_URLS.contains(request.getRequestURI())));
         return Constant.NO_NEED_AUTH_URLS.contains(request.getRequestURI())
-                || request.getRequestURI().startsWith("/guest");
+                || request.getRequestURI().startsWith("/guest")
+                || request.getRequestURI().startsWith("/swagger-ui")
+                || request.getRequestURI().startsWith("/v3/api-docs")
+                || request.getRequestURI().startsWith("/webjars");
     }
-
 }

@@ -67,6 +67,9 @@ dependencies {
 
     /** Google ID Token 검증용 (공식 Google API Client) **/
     implementation 'com.google.api-client:google-api-client:2.8.1'
+
+    /** Swagger for API documentation **/
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.5'
 }
 
 tasks.named('test') {
