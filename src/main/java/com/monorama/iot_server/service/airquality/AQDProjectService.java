@@ -5,6 +5,7 @@ import com.monorama.iot_server.domain.User;
 import com.monorama.iot_server.domain.UserDataPermission;
 import com.monorama.iot_server.domain.UserProject;
 import com.monorama.iot_server.domain.type.TermsType;
+import com.monorama.iot_server.dto.response.airquality.AQDParticipatedProjectListResponseDto;
 import com.monorama.iot_server.dto.response.project.AirMetaDataItemResponseDto;
 import com.monorama.iot_server.dto.response.project.ProjectDetailResponseDto;
 import com.monorama.iot_server.dto.response.project.ProjectListResponseDto;
@@ -91,5 +92,11 @@ public class AQDProjectService {
         permission.getHealthDataFlag().updateBy(project.getHealthDataFlag());
         permission.getPersonalInfoFlag().updateBy(project.getPersonalInfoFlag());
 
+    }
+
+    public AQDParticipatedProjectListResponseDto getParticipatedProjects(Long userId) {
+        var projectList = userProjectRepo.findProjectsByUserId(userId);
+
+        return AQDParticipatedProjectListResponseDto.fromEntities(projectList);
     }
 }
