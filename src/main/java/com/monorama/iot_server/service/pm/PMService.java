@@ -45,15 +45,15 @@ public class PMService {
         return ProjectDetailResponseDto.fromEntity(project, airMetaDataItemDtoList);
     }
 
-    public String saveProject(Long pmId, ProjectRequestDto projectRequestDto) {
+    public Boolean saveProject(Long pmId, ProjectRequestDto projectRequestDto) {
         User pm = userRepository.findById(pmId)
                 .orElseThrow(() -> new CommonException(ErrorCode.NOT_FOUND_USER));
 
         Project project = projectRequestDto.toEntity(pm);
         projectRepository.save(project);
 
-        return "-" + pmId + "-" + project.getId() + "-" + project.getEndDate();
+        return true;
     }
 
-
+// TODO: 기간지난 프로젝트 보여주지 않기
 }
