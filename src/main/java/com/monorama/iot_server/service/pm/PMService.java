@@ -55,5 +55,4 @@ public class PMService {
         return true;
     }
 
-// TODO: 기간지난 프로젝트 보여주지 않기
 }

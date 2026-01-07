@@ -17,7 +17,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     WHERE
         (:includeBoth = true AND (p.projectType = com.monorama.iot_server.domain.type.ProjectType.HEALTH_DATA OR p.projectType = com.monorama.iot_server.domain.type.ProjectType.BOTH) OR
          :includeBoth = false AND p.projectType = com.monorama.iot_server.domain.type.ProjectType.HEALTH_DATA)
-      AND p.startDate <= CURRENT_DATE
       AND p.endDate >= CURRENT_DATE
       AND p.maxParticipant > p.curParticipant
     """)
@@ -29,7 +28,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query("""
     SELECT p FROM Project p
     WHERE p.id = :projectId
-      AND p.startDate <= CURRENT_DATE
       AND p.endDate >= CURRENT_DATE
       AND (p.projectType = com.monorama.iot_server.domain.type.ProjectType.HEALTH_DATA
            OR p.projectType = com.monorama.iot_server.domain.type.ProjectType.BOTH)
@@ -39,6 +37,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query("""
     SELECT p FROM Project p
     WHERE p.user.id = :pmId
+        AND CURRENT_DATE <= p.endDate
     """)
     List<Project> findAllByPMId(Long pmId);
 
@@ -47,7 +46,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     WHERE
         (:includeBoth = true AND (p.projectType = com.monorama.iot_server.domain.type.ProjectType.AIR_QUALITY OR p.projectType = com.monorama.iot_server.domain.type.ProjectType.BOTH) OR
          :includeBoth = false AND p.projectType = com.monorama.iot_server.domain.type.ProjectType.AIR_QUALITY)
-      AND p.startDate <= CURRENT_DATE
       AND p.endDate >= CURRENT_DATE
       AND p.maxParticipant > p.curParticipant
     """)
@@ -56,7 +54,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query("""
     SELECT p FROM Project p
     WHERE p.id = :projectId
-      AND p.startDate <= CURRENT_DATE
       AND p.endDate >= CURRENT_DATE
       AND (p.projectType = com.monorama.iot_server.domain.type.ProjectType.AIR_QUALITY
            OR p.projectType = com.monorama.iot_server.domain.type.ProjectType.BOTH)
