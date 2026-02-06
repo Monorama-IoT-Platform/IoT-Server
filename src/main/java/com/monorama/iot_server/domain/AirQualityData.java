@@ -17,7 +17,7 @@ public class AirQualityData {
     private Long id;
 
     /*** basic information ***/
-    @Column(name = "created_at", columnDefinition = "DATETIME(0)", nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Embedded
