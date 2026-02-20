@@ -74,7 +74,7 @@ public class AuthController {
                 .orElseThrow(() -> new CommonException(ErrorCode.TOKEN_UNKNOWN_ERROR));
 
         log.info("refresh token : {}", refreshToken);
-        JwtTokenDto newTokens = authService.refresh(refreshToken, request);
+        JwtTokenDto newTokens = authService.refresh(refreshToken);
         return handleAccessTokenAndSetCookie(newTokens, response);
     }
 
