@@ -19,7 +19,7 @@ public class UserProject {
 
     /*** basic information ***/
     @CreationTimestamp
-    @Column(name = "created_at", columnDefinition = "DATETIME(0)")
+    @Column(name = "created_at")
     private LocalDate createdAt;
 
     /*** mapping information ***/

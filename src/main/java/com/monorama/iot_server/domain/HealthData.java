@@ -18,7 +18,7 @@ public class HealthData {
     private Long id;
 
     /*** basic information ***/ // TODO: 수정 요함 만들어진 날짜 받아야될듯
-    @Column(name = "created_at", columnDefinition = "DATETIME(0)")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Embedded

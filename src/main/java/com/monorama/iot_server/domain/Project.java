@@ -50,7 +50,7 @@ public class Project {
     private LocalDate endDate;
 
     @CreationTimestamp
-    @Column(name = "created_at", columnDefinition = "DATETIME(0)")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "description")
