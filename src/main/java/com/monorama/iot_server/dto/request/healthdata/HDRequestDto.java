@@ -15,7 +15,7 @@ import java.util.List;
 
 public record HDRequestDto(
         @NotNull
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
         LocalDateTime createdAt,
 
         Double stepCount,
