@@ -25,11 +25,11 @@ public record ProjectRequestDto(
         String localDataTermsOfService,
 
         @NotNull
-        @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul")
+        @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
         LocalDate startDate,
 
         @NotNull
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         LocalDate endDate,
 
         @NotNull Boolean email,

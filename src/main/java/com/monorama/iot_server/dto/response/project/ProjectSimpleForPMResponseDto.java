@@ -11,10 +11,10 @@ public record ProjectSimpleForPMResponseDto(
         String projectType,
         Integer participant,
 
-        @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul")
+        @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
         LocalDate startDate,
 
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         LocalDate endDate
 ) {
     public static ProjectSimpleForPMResponseDto fromEntity(Project project) {
