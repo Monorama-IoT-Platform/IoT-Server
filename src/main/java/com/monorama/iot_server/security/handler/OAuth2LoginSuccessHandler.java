@@ -49,7 +49,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         if (userPrincipal.getRole().equals(ERole.GUEST)) {
             response.sendRedirect( redirectBaseUrl + "/auth/register/social" + "?accessToken=" + jwtTokenDto.getAccessToken());
         } else {
-            response.sendRedirect(redirectBaseUrl + "/projects" + "?accessToken=" + jwtTokenDto.getAccessToken());
+            response.sendRedirect(redirectBaseUrl + "/auth/token-redirect" + "?accessToken=" + jwtTokenDto.getAccessToken());
         }
 
     }
