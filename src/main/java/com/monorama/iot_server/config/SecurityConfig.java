@@ -73,10 +73,10 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/webjars/**"
                         ).permitAll()
-                        .requestMatchers("/api/v1/metadata/**").hasAnyRole((ERole.PM.toString()),ERole.BOTH_USER.toString(), ERole.AQD_USER.toString())
-                        .requestMatchers("/api/v1/pm/**").hasAnyRole((ERole.PM.toString()))
-                        .requestMatchers("/api/v1/health-data/**").hasAnyRole((ERole.BOTH_USER.toString()),ERole.HD_USER.toString())
-                        .requestMatchers("/api/v1/air-quality-data/**").hasAnyRole((ERole.BOTH_USER.toString()), ERole.AQD_USER.toString())
+                        .requestMatchers("/api/v1/metadata/**").hasAnyRole((ERole.PM.toString()),ERole.BOTH_USER.toString(), ERole.AQD_USER.toString(), ERole.ADMIN.toString())
+                        .requestMatchers("/api/v1/pm/**").hasAnyRole((ERole.PM.toString()), ERole.ADMIN.toString())
+                        .requestMatchers("/api/v1/health-data/**").hasAnyRole((ERole.BOTH_USER.toString()),ERole.HD_USER.toString(), ERole.ADMIN.toString())
+                        .requestMatchers("/api/v1/air-quality-data/**").hasAnyRole((ERole.BOTH_USER.toString()), ERole.AQD_USER.toString(), ERole.ADMIN.toString())
                         .anyRequest().authenticated())
 
                 .oauth2Login(
