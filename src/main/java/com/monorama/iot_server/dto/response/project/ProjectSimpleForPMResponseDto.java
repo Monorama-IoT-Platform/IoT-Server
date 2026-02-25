@@ -10,6 +10,7 @@ public record ProjectSimpleForPMResponseDto(
         String projectTitle,
         String projectType,
         Integer participant,
+        Integer currentParticipant,
 
         @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
         LocalDate startDate,
@@ -23,6 +24,7 @@ public record ProjectSimpleForPMResponseDto(
                 project.getTitle(),
                 project.getProjectType().toString(),
                 project.getMaxParticipant(),
+                project.getCurParticipant(),
                 project.getStartDate(),
                 project.getEndDate()
         );

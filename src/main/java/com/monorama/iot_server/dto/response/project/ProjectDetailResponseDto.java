@@ -14,6 +14,7 @@ public record ProjectDetailResponseDto(
         String pmEmail,
         String projectTitle,
         Integer participant,
+        Integer currentParticipant,
         String description,
         String projectType,
 
@@ -85,6 +86,7 @@ public record ProjectDetailResponseDto(
                 project.getUser().getEmail(),
                 project.getTitle(),
                 project.getMaxParticipant(),
+                project.getCurParticipant(),
                 project.getDescription(),
                 project.getProjectType().toString(),
                 project.getStartDate(),
